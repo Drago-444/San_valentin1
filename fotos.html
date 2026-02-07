@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nuestros Recuerdos - San Valentín 💙</title>
+    <title>Nuestras Fotos - San Valentín 💙</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -13,156 +13,78 @@
         }
 
         :root {
-            --primary: #FF2E93;
-            --secondary: #FF8E53;
-            --accent: #B967FF;
-            --dark: #0f0f1f;
-            --darker: #1a1a3a;
+            --primary: #0066CC;
+            --secondary: #66B2FF;
+            --accent: #99CCFF;
+            --dark: #0a0a2a;
+            --darker: #1a1a4a;
+            --darkest: #2a2a6a;
             --light: rgba(255, 255, 255, 0.95);
-            --border-color: rgba(255, 107, 157, 0.5);
-            --card-bg: rgba(255, 255, 255, 0.08);
-            --gradient-1: #FF6B9D;
-            --gradient-2: #FF8E53;
-            --gradient-3: #6A11CB;
-            --neon-pink: #FF2E93;
-            --neon-blue: #00D4FF;
+            --light-transparent: rgba(255, 255, 255, 0.15);
+            --border-color: rgba(102, 178, 255, 0.5);
         }
 
         body {
-            font-family: 'Segoe UI', 'Poppins', sans-serif;
-            background: var(--dark);
-            color: #fff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--dark) 0%, var(--darker) 50%, var(--darkest) 100%);
             min-height: 100vh;
+            color: #fff;
             overflow-x: hidden;
-            position: relative;
+            -webkit-tap-highlight-color: transparent;
         }
 
-        /* Fondo animado con gradientes móviles */
-        .gradient-bg {
+        /* Estrellas de fondo AZULES */
+        .stars {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             z-index: -2;
-            background: 
-                radial-gradient(circle at 20% 50%, rgba(255, 107, 157, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(106, 17, 203, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 40% 80%, rgba(255, 142, 83, 0.15) 0%, transparent 50%);
-            background-size: 300% 300%;
-            animation: gradientMove 20s ease infinite alternate;
-        }
-
-        @keyframes gradientMove {
-            0% { background-position: 0% 50%; }
-            100% { background-position: 100% 50%; }
-        }
-
-        /* Efecto de partículas */
-        .particles {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
             pointer-events: none;
         }
 
-        .particle {
+        .star {
             position: absolute;
-            background: var(--neon-pink);
+            background-color: #66B2FF;
             border-radius: 50%;
-            animation: floatParticle 15s linear infinite;
+            animation: twinkle 3s infinite;
         }
 
-        @keyframes floatParticle {
-            0% {
-                transform: translateY(100vh) rotate(0deg);
-                opacity: 0;
-            }
-            10% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-100px) rotate(360deg);
-                opacity: 0;
-            }
+        .star.small { width: 1px; height: 1px; }
+        .star.medium { width: 2px; height: 2px; }
+        .star.large { width: 3px; height: 3px; }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 0.8; }
         }
 
-        /* Header moderno */
+        /* Header profesional */
         .gallery-header {
             text-align: center;
-            padding: 60px 20px 40px;
+            padding: 40px 20px 30px;
             position: relative;
+            background: linear-gradient(180deg, 
+                rgba(10, 10, 42, 0.95) 0%,
+                rgba(26, 26, 74, 0.85) 100%);
+            backdrop-filter: blur(15px);
+            border-bottom: 2px solid var(--border-color);
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
         }
 
-        .date-badge {
-            display: inline-block;
-            padding: 12px 30px;
-            background: linear-gradient(90deg, var(--gradient-1), var(--gradient-2));
-            border-radius: 50px;
-            font-size: 1.1em;
-            font-weight: 600;
-            margin-bottom: 30px;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 
-                0 10px 30px rgba(255, 107, 157, 0.3),
-                0 0 0 2px rgba(255, 255, 255, 0.1);
-            animation: badgeGlow 3s infinite alternate;
-        }
-
-        @keyframes badgeGlow {
-            0%, 100% {
-                box-shadow: 
-                    0 10px 30px rgba(255, 107, 157, 0.3),
-                    0 0 0 2px rgba(255, 255, 255, 0.1);
-            }
-            50% {
-                box-shadow: 
-                    0 10px 40px rgba(255, 107, 157, 0.6),
-                    0 0 0 3px rgba(255, 255, 255, 0.2);
+        @media (max-width: 768px) {
+            .gallery-header {
+                padding: 30px 15px 25px;
             }
         }
 
-        .gallery-title {
-            font-size: 3.5em;
-            background: linear-gradient(45deg, var(--gradient-1), var(--gradient-2), var(--gradient-3));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            margin: 20px 0 10px;
-            font-weight: 800;
-            letter-spacing: 1px;
-            text-shadow: 0 0 30px rgba(255, 107, 157, 0.3);
-            background-size: 200% auto;
-            animation: titleShine 3s infinite alternate;
-        }
-
-        @keyframes titleShine {
-            0% {
-                background-position: 0% 50%;
-            }
-            100% {
-                background-position: 100% 50%;
-            }
-        }
-
-        .gallery-subtitle {
-            font-size: 1.3em;
-            color: rgba(255, 255, 255, 0.8);
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.6;
-            font-weight: 300;
-        }
-
-        /* Botón de volver mejorado */
+        /* Botón de volver mejorado - PROFESIONAL AZUL */
         .back-btn-container {
             text-align: center;
-            margin: 40px 0 60px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            width: 100%;
         }
 
         .back-btn-improved {
@@ -171,7 +93,7 @@
             justify-content: center;
             gap: 15px;
             padding: 18px 35px;
-            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2));
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
             text-decoration: none;
             border-radius: 50px;
@@ -180,7 +102,7 @@
             letter-spacing: 0.5px;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             box-shadow: 
-                0 10px 30px rgba(255, 107, 157, 0.3),
+                0 10px 30px rgba(0, 102, 204, 0.3),
                 0 0 0 2px rgba(255, 255, 255, 0.3);
             border: 2px solid white;
             position: relative;
@@ -209,10 +131,14 @@
         .back-btn-improved:hover {
             transform: translateY(-5px) scale(1.05);
             box-shadow: 
-                0 15px 40px rgba(255, 107, 157, 0.5),
+                0 15px 40px rgba(0, 102, 204, 0.5),
                 0 0 0 2px rgba(255, 255, 255, 0.5);
             letter-spacing: 1px;
-            background: linear-gradient(135deg, var(--gradient-2), var(--gradient-1));
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+        }
+
+        .back-btn-improved:active {
+            transform: translateY(-2px) scale(1.02);
         }
 
         .back-btn-icon {
@@ -224,46 +150,137 @@
             transform: translateX(-5px);
         }
 
-        /* Contenedor de galería */
+        @media (max-width: 768px) {
+            .back-btn-container {
+                margin-top: 30px;
+                margin-bottom: 15px;
+            }
+            
+            .back-btn-improved {
+                padding: 16px 30px;
+                font-size: 1em;
+                min-width: 200px;
+            }
+        }
+
+        .gallery-title {
+            font-size: 2.8em;
+            background: linear-gradient(45deg, var(--primary), var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin: 15px 0 10px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .gallery-title {
+                font-size: 2.2em;
+                letter-spacing: 1px;
+                margin-top: 10px;
+            }
+        }
+
+        .gallery-subtitle {
+            font-size: 1.1em;
+            color: rgba(255, 255, 255, 0.95);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+            font-weight: 300;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .gallery-subtitle {
+                font-size: 1em;
+                padding: 0 15px;
+            }
+        }
+
+        /* Galería profesional con bordes */
         .gallery-container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 30px 20px;
         }
 
-        /* Grid de fotos moderna */
+        @media (max-width: 768px) {
+            .gallery-container {
+                padding: 20px 15px;
+            }
+        }
+
         .photo-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-            padding: 20px 0;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            padding: 10px;
         }
 
-        /* Tarjetas de fotos elegantes */
+        @media (max-width: 768px) {
+            .photo-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+                padding: 5px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .photo-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+        }
+
+        /* Tarjetas de fotos profesionales con bordes */
         .photo-card {
-            background: var(--card-bg);
-            backdrop-filter: blur(20px);
-            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
             overflow: hidden;
             position: relative;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            height: 380px;
+            border: 2px solid var(--border-color);
+            backdrop-filter: blur(15px);
+            height: 320px;
             cursor: pointer;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             box-shadow: 
-                0 15px 35px rgba(0, 0, 0, 0.2),
-                inset 0 1px 0 rgba(255, 255, 255, 0.1);
-            transform-style: preserve-3d;
-            perspective: 1000px;
+                0 10px 30px rgba(0, 0, 0, 0.2),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.1);
         }
 
-        .photo-card:hover {
-            transform: translateY(-15px) rotateX(5deg);
+        @media (max-width: 768px) {
+            .photo-card {
+                height: 220px;
+                border-radius: 15px;
+                border-width: 2px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .photo-card {
+                height: 200px;
+                border-radius: 12px;
+            }
+        }
+
+        /* Efecto hover profesional - solo se activa con click intencional */
+        .photo-card:hover:not(.tapped) {
+            transform: translateY(-5px);
             box-shadow: 
-                0 25px 50px rgba(0, 0, 0, 0.3),
-                0 0 40px rgba(255, 107, 157, 0.2),
-                inset 0 1px 0 rgba(255, 255, 255, 0.2);
-            border-color: rgba(255, 255, 255, 0.3);
+                0 15px 35px rgba(0, 0, 0, 0.3),
+                0 0 30px rgba(0, 102, 204, 0.25),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+            border-color: var(--primary);
+        }
+
+        /* Efecto de click/tap */
+        .photo-card.tapped {
+            transform: scale(0.98);
+            transition: transform 0.1s ease;
         }
 
         .photo-frame {
@@ -274,209 +291,161 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 15px;
+            padding: 10px;
             box-sizing: border-box;
         }
 
+        /* Contenedor interno para mantener proporción */
         .photo-container {
             width: 100%;
             height: 100%;
             overflow: hidden;
-            border-radius: 15px;
+            border-radius: 12px;
             position: relative;
-            background: linear-gradient(45deg, var(--darker), var(--dark));
+            background: linear-gradient(45deg, var(--darker), var(--darkest));
         }
 
         .photo-img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.6s ease;
+            transition: transform 0.5s ease;
             display: block;
-        }
-
-        .photo-card:hover .photo-img {
-            transform: scale(1.05);
         }
 
         .photo-number {
             position: absolute;
-            top: 25px;
-            right: 25px;
-            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2));
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
-            width: 45px;
-            height: 45px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 700;
-            font-size: 1.1em;
+            font-size: 1em;
             z-index: 2;
             box-shadow: 
-                0 5px 20px rgba(0, 0, 0, 0.3),
-                0 0 0 2px rgba(255, 255, 255, 0.3);
+                0 5px 15px rgba(0, 0, 0, 0.3),
+                0 0 0 2px rgba(255, 255, 255, 0.4);
             border: 2px solid white;
-            transition: all 0.3s ease;
         }
 
-        .photo-card:hover .photo-number {
-            transform: scale(1.1) rotate(15deg);
-            box-shadow: 
-                0 5px 25px rgba(255, 107, 157, 0.4),
-                0 0 0 3px rgba(255, 255, 255, 0.4);
+        @media (max-width: 768px) {
+            .photo-number {
+                width: 34px;
+                height: 34px;
+                font-size: 0.85em;
+                top: 15px;
+                right: 15px;
+            }
         }
 
-        /* Efecto de brillo en las esquinas */
-        .photo-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, 
-                transparent, 
-                rgba(255, 255, 255, 0.1), 
-                transparent);
-            transform: rotate(45deg);
-            transition: transform 0.6s;
-            pointer-events: none;
-        }
-
-        .photo-card:hover::before {
-            transform: rotate(45deg) translateX(100%);
-        }
-
-        /* Sección de mensaje */
-        .gallery-message {
-            max-width: 900px;
-            margin: 60px auto;
-            padding: 50px;
-            background: linear-gradient(135deg, 
-                rgba(255, 107, 157, 0.1),
-                rgba(106, 17, 203, 0.1));
-            border-radius: 30px;
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(20px);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .gallery-message::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
+        /* Loading profesional SIN texto */
+        .loading-placeholder {
+            width: 100%;
             height: 100%;
-            background: linear-gradient(45deg, 
-                transparent, 
-                rgba(255, 107, 157, 0.05),
-                transparent);
-            pointer-events: none;
-            animation: shineLine 6s linear infinite;
+            background: linear-gradient(45deg, var(--darker), var(--darkest));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5em;
+            color: var(--light-transparent);
         }
 
-        @keyframes shineLine {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
+        /* Sección de mensaje actualizado */
+        .gallery-message {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 40px;
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.1) 0%,
+                rgba(0, 102, 204, 0.1) 100%);
+            border-radius: 20px;
+            text-align: center;
+            border: 2px solid var(--border-color);
+            backdrop-filter: blur(20px);
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.25),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .gallery-message {
+                margin: 40px auto;
+                padding: 30px 25px;
+                border-radius: 18px;
+            }
         }
 
         .message-icon {
-            font-size: 3em;
-            color: var(--neon-pink);
+            font-size: 2.5em;
+            color: var(--secondary);
             margin-bottom: 25px;
-            text-shadow: 0 0 20px rgba(255, 107, 157, 0.5);
-            animation: heartbeat 1.5s infinite;
-        }
-
-        @keyframes heartbeat {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
         }
 
         .message-text {
-            font-size: 1.2em;
-            line-height: 1.8;
-            color: rgba(255, 255, 255, 0.95);
+            font-size: 1.15em;
+            line-height: 1.7;
+            color: var(--light);
             font-weight: 300;
-            position: relative;
-            z-index: 1;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .message-text {
+                font-size: 1.05em;
+                line-height: 1.6;
+            }
         }
 
         .message-text p {
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
 
         .message-text strong {
-            color: var(--neon-pink);
+            color: var(--secondary);
             font-weight: 600;
-            text-shadow: 0 0 10px rgba(255, 107, 157, 0.3);
         }
 
         .message-emoji {
-            font-size: 2em;
+            font-size: 1.5em;
             display: block;
-            margin-top: 25px;
-            animation: floatEmoji 3s ease-in-out infinite;
+            margin-top: 20px;
         }
 
-        @keyframes floatEmoji {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        /* Footer elegante */
-        .gallery-footer {
-            text-align: center;
-            padding: 50px 20px;
-            margin-top: 50px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            position: relative;
-        }
-
-        .gallery-footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 3px;
-            background: linear-gradient(90deg, var(--gradient-1), var(--gradient-2));
-            border-radius: 2px;
-        }
-
-        .footer-text {
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 0.95em;
-            line-height: 1.6;
-        }
-
-        /* Control de música moderno */
+        /* Control de música profesional */
         .music-player {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
+            bottom: 25px;
+            right: 25px;
             z-index: 1000;
         }
 
+        @media (max-width: 768px) {
+            .music-player {
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+
         .music-btn {
-            width: 70px;
-            height: 70px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
-            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2));
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             border: 2px solid white;
             color: white;
-            font-size: 1.6em;
+            font-size: 1.5em;
             cursor: pointer;
             box-shadow: 
-                0 15px 35px rgba(255, 107, 157, 0.3),
-                0 0 0 2px rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
+                0 10px 30px rgba(0, 0, 0, 0.4),
+                0 0 0 2px rgba(255, 255, 255, 0.3);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -484,31 +453,64 @@
             overflow: hidden;
         }
 
+        @media (max-width: 768px) {
+            .music-btn {
+                width: 55px;
+                height: 55px;
+                font-size: 1.4em;
+            }
+        }
+
         .music-btn::before {
             content: '';
             position: absolute;
+            top: 0;
+            left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(45deg, 
+            background: linear-gradient(90deg, 
                 transparent, 
-                rgba(255, 255, 255, 0.2), 
+                rgba(255, 255, 255, 0.4), 
                 transparent);
-            animation: rotate 3s linear infinite;
+            transition: left 0.5s;
         }
 
-        @keyframes rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        .music-btn:hover::before {
+            left: 100%;
         }
 
-        .music-btn:hover {
-            transform: scale(1.1) rotate(15deg);
+        .music-btn:hover, .music-btn:active {
+            transform: scale(1.1);
             box-shadow: 
-                0 20px 40px rgba(255, 107, 157, 0.5),
-                0 0 0 3px rgba(255, 255, 255, 0.2);
+                0 15px 40px rgba(0, 102, 204, 0.5),
+                0 0 0 2px rgba(255, 255, 255, 0.5);
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
         }
 
-        /* Lightbox moderno */
+        /* Footer profesional */
+        .gallery-footer {
+            text-align: center;
+            padding: 35px 20px 60px;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.9em;
+            border-top: 2px solid var(--border-color);
+            margin-top: 30px;
+            background: rgba(10, 10, 42, 0.4);
+            backdrop-filter: blur(15px);
+            font-weight: 300;
+            position: relative;
+            border-radius: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .gallery-footer {
+                padding: 25px 15px 50px;
+                margin-top: 25px;
+                font-size: 0.85em;
+            }
+        }
+
+        /* Lightbox profesional */
         .lightbox {
             display: none;
             position: fixed;
@@ -516,7 +518,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(15, 15, 31, 0.98);
+            background: rgba(0, 0, 0, 0.97);
             z-index: 2000;
             align-items: center;
             justify-content: center;
@@ -524,7 +526,6 @@
             transition: opacity 0.3s ease;
             padding: 20px;
             box-sizing: border-box;
-            backdrop-filter: blur(20px);
         }
 
         .lightbox.active {
@@ -543,12 +544,12 @@
 
         .lightbox-img {
             max-width: 100%;
-            max-height: 85vh;
+            max-height: 85%;
             object-fit: contain;
-            border-radius: 20px;
+            border-radius: 15px;
             box-shadow: 
-                0 30px 60px rgba(0, 0, 0, 0.6),
-                0 0 0 2px rgba(255, 255, 255, 0.1);
+                0 20px 60px rgba(0, 0, 0, 0.5),
+                0 0 0 2px var(--border-color);
             transform: scale(0.95);
             transition: transform 0.3s ease;
         }
@@ -559,13 +560,13 @@
 
         .lightbox-close {
             position: fixed;
-            top: 30px;
+            top: 25px;
             right: 30px;
             color: white;
-            font-size: 1.8em;
+            font-size: 2em;
             cursor: pointer;
-            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2));
-            border: 2px solid white;
+            background: rgba(0, 0, 0, 0.5);
+            border: 2px solid var(--border-color);
             width: 50px;
             height: 50px;
             border-radius: 50%;
@@ -574,12 +575,23 @@
             justify-content: center;
             transition: all 0.3s ease;
             z-index: 2001;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        @media (max-width: 768px) {
+            .lightbox-close {
+                top: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+                font-size: 1.5em;
+            }
         }
 
         .lightbox-close:hover {
-            transform: rotate(90deg) scale(1.1);
-            box-shadow: 0 15px 40px rgba(255, 107, 157, 0.5);
+            background: var(--primary);
+            transform: rotate(90deg);
+            border-color: white;
         }
 
         .lightbox-nav {
@@ -589,16 +601,22 @@
             transform: translateY(-50%);
             display: flex;
             justify-content: space-between;
-            padding: 0 40px;
+            padding: 0 30px;
             z-index: 2001;
         }
 
+        @media (max-width: 768px) {
+            .lightbox-nav {
+                padding: 0 20px;
+            }
+        }
+
         .nav-btn {
-            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2));
-            border: 2px solid white;
+            background: rgba(0, 0, 0, 0.5);
+            border: 2px solid var(--border-color);
             color: white;
-            width: 60px;
-            height: 60px;
+            width: 55px;
+            height: 55px;
             border-radius: 50%;
             font-size: 1.5em;
             cursor: pointer;
@@ -606,163 +624,102 @@
             align-items: center;
             justify-content: center;
             transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        .nav-btn:hover {
-            transform: scale(1.1);
-            box-shadow: 0 15px 40px rgba(255, 107, 157, 0.5);
-        }
-
-        .lightbox-counter {
-            position: fixed;
-            bottom: 40px;
-            left: 50%;
-            transform: translateX(-50%);
-            color: white;
-            font-size: 1.1em;
-            background: linear-gradient(135deg, 
-                rgba(255, 107, 157, 0.2),
-                rgba(106, 17, 203, 0.2));
-            padding: 12px 30px;
-            border-radius: 50px;
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            font-weight: 600;
-        }
-
-        /* Animaciones de entrada */
-        @keyframes cardEntrance {
-            from {
-                opacity: 0;
-                transform: translateY(30px) scale(0.95);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
-        }
-
-        .photo-card {
-            animation: cardEntrance 0.6s ease forwards;
-            animation-delay: calc(var(--index) * 0.1s);
-            opacity: 0;
-        }
-
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .photo-grid {
-                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-                gap: 25px;
-            }
-            
-            .photo-card {
-                height: 340px;
-            }
         }
 
         @media (max-width: 768px) {
-            .gallery-title {
-                font-size: 2.5em;
-            }
-            
-            .gallery-subtitle {
-                font-size: 1.1em;
-            }
-            
-            .photo-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 20px;
-            }
-            
-            .photo-card {
-                height: 250px;
-            }
-            
-            .photo-number {
-                width: 40px;
-                height: 40px;
-                font-size: 1em;
-                top: 20px;
-                right: 20px;
-            }
-            
-            .gallery-message {
-                padding: 40px 30px;
-                margin: 40px auto;
-            }
-            
-            .message-icon {
-                font-size: 2.5em;
-            }
-            
-            .message-text {
-                font-size: 1.1em;
-            }
-            
-            .back-btn-improved {
-                padding: 16px 30px;
-                font-size: 1em;
-                min-width: 200px;
-            }
-            
-            .music-player {
-                bottom: 20px;
-                right: 20px;
-            }
-            
-            .music-btn {
-                width: 60px;
-                height: 60px;
-                font-size: 1.4em;
-            }
-            
-            .lightbox-nav {
-                padding: 0 20px;
-            }
-            
             .nav-btn {
                 width: 50px;
                 height: 50px;
                 font-size: 1.3em;
             }
-            
-            .lightbox-close {
-                top: 20px;
-                right: 20px;
-                width: 45px;
-                height: 45px;
-                font-size: 1.4em;
-            }
-            
+        }
+
+        .nav-btn:hover {
+            background: var(--primary);
+            transform: scale(1.1);
+            border-color: white;
+        }
+
+        .lightbox-counter {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 1.1em;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 10px 25px;
+            border-radius: 25px;
+            backdrop-filter: blur(15px);
+            border: 2px solid var(--border-color);
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
             .lightbox-counter {
-                bottom: 30px;
+                bottom: 25px;
                 font-size: 1em;
-                padding: 10px 25px;
+                padding: 8px 20px;
             }
         }
 
-        @media (max-width: 480px) {
-            .photo-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-            
-            .photo-card {
-                height: 300px;
-            }
-            
-            .gallery-title {
-                font-size: 2em;
-            }
-            
-            .date-badge {
-                font-size: 0.9em;
-                padding: 10px 25px;
+        /* Instrucciones para móviles */
+        .mobile-instruction {
+            display: none;
+            position: fixed;
+            bottom: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.85);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 0.95em;
+            z-index: 1000;
+            backdrop-filter: blur(20px);
+            border: 2px solid var(--border-color);
+            text-align: center;
+            max-width: 90%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .mobile-instruction {
+                display: block;
+                animation: fadeInUp 0.5s ease;
             }
         }
 
-        /* Scroll suave */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateX(-50%) translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(-50%) translateY(0);
+            }
+        }
+
+        /* Animación de entrada profesional */
+        @keyframes cardEntrance {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .photo-card {
+            animation: cardEntrance 0.6s ease forwards;
+            opacity: 0;
+        }
+
+        /* Desplazamiento suave */
         html {
             scroll-behavior: smooth;
         }
@@ -775,13 +732,11 @@
     </style>
 </head>
 <body>
-    <!-- Audio para la canción -->
-    <audio id="birthdaySong" loop preload="auto">
-        <source src="https://assets.mixkit.co/music/preview/mixkit-valentines-day-327.mp3" type="audio/mpeg">
+    <audio id="birthdaySong" loop>
+        <source src="cancion.mp3" type="audio/mpeg">
         Tu navegador no soporta el elemento de audio.
     </audio>
 
-    <!-- Lightbox -->
     <div class="lightbox" id="lightbox">
         <button class="lightbox-close" id="closeLightbox">
             <i class="fas fa-times"></i>
@@ -800,147 +755,128 @@
         </div>
     </div>
 
-    <!-- Fondo animado -->
-    <div class="gradient-bg"></div>
-    <div class="particles" id="particles"></div>
+    <div class="mobile-instruction" id="mobileInstruction">
+        <i class="fas fa-hand-pointer"></i> Toca para ver foto completa
+        <br>
+        <small>Desliza para navegar entre fotos</small>
+    </div>
 
-    <!-- Contenido principal -->
+    <div class="stars" id="stars"></div>
+
     <div class="gallery-header">
-        <div class="date-badge">
-            <i class="fas fa-camera"></i> NUESTROS MOMENTOS ESPECIALES
-        </div>
-        <h1 class="gallery-title">RECUERDOS ETERNOS</h1>
-        <p class="gallery-subtitle">Cada foto cuenta una historia de amor, risas y momentos inolvidables</p>
+        <h1 class="gallery-title">NUESTROS MOMENTOS</h1>
+        <p class="gallery-subtitle">Fotos de recuerdos</p>
     </div>
 
     <div class="gallery-container">
         <div class="photo-grid">
-            <!-- Cada tarjeta de foto tiene un estilo más elegante -->
-            <div class="photo-card" style="--index: 0">
+            <div class="photo-card" data-index="0" style="animation-delay: 0.1s">
                 <div class="photo-number">01</div>
                 <div class="photo-frame">
                     <div class="photo-container">
-                        <img src="foto1.jpg" alt="Nuestro primer recuerdo juntos" class="photo-img" loading="lazy" 
-                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1518568814500-bf0f8d125f46?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80'">
+                        <img src="foto1.jpg" alt="Foto 1" class="photo-img" loading="lazy" onerror="this.style.display='none';">
                     </div>
                 </div>
             </div>
 
-            <div class="photo-card" style="--index: 1">
+            <div class="photo-card" data-index="1" style="animation-delay: 0.2s">
                 <div class="photo-number">02</div>
                 <div class="photo-frame">
                     <div class="photo-container">
-                        <img src="foto2.jpg" alt="Risas y felicidad compartida" class="photo-img" loading="lazy"
-                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1518568814500-bf0f8d125f46?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80'">
+                        <img src="foto2.jpg" alt="Foto 2" class="photo-img" loading="lazy" onerror="this.style.display='none';">
                     </div>
                 </div>
             </div>
 
-            <div class="photo-card" style="--index: 2">
+            <div class="photo-card" data-index="2" style="animation-delay: 0.3s">
                 <div class="photo-number">03</div>
                 <div class="photo-frame">
                     <div class="photo-container">
-                        <img src="foto3.jpg" alt="Aventuras compartidas" class="photo-img" loading="lazy"
-                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1518568814500-bf0f8d125f46?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80'">
+                        <img src="foto3.jpg" alt="Foto 3" class="photo-img" loading="lazy" onerror="this.style.display='none';">
                     </div>
                 </div>
             </div>
 
-            <div class="photo-card" style="--index: 3">
+            <div class="photo-card" data-index="3" style="animation-delay: 0.4s">
                 <div class="photo-number">04</div>
                 <div class="photo-frame">
                     <div class="photo-container">
-                        <img src="foto4.jpg" alt="Momentos especiales" class="photo-img" loading="lazy"
-                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1518568814500-bf0f8d125f46?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80'">
+                        <img src="foto4.jpg" alt="Foto 4" class="photo-img" loading="lazy" onerror="this.style.display='none';">
                     </div>
                 </div>
             </div>
 
-            <div class="photo-card" style="--index: 4">
+            <div class="photo-card" data-index="4" style="animation-delay: 0.5s">
                 <div class="photo-number">05</div>
                 <div class="photo-frame">
                     <div class="photo-container">
-                        <img src="foto5.jpg" alt="Celebraciones juntos" class="photo-img" loading="lazy"
-                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1518568814500-bf0f8d125f46?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80'">
+                        <img src="foto5.jpg" alt="Foto 5" class="photo-img" loading="lazy" onerror="this.style.display='none';">
                     </div>
                 </div>
             </div>
 
-            <div class="photo-card" style="--index: 5">
+            <div class="photo-card" data-index="5" style="animation-delay: 0.6s">
                 <div class="photo-number">06</div>
                 <div class="photo-frame">
                     <div class="photo-container">
-                        <img src="foto6.jpg" alt="Paseos y descubrimientos" class="photo-img" loading="lazy"
-                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1518568814500-bf0f8d125f46?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80'">
+                        <img src="foto6.jpg" alt="Foto 6" class="photo-img" loading="lazy" onerror="this.style.display='none';">
                     </div>
                 </div>
             </div>
 
-            <div class="photo-card" style="--index: 6">
+            <div class="photo-card" data-index="6" style="animation-delay: 0.7s">
                 <div class="photo-number">07</div>
                 <div class="photo-frame">
                     <div class="photo-container">
-                        <img src="foto7.jpg" alt="Sueños compartidos" class="photo-img" loading="lazy"
-                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1518568814500-bf0f8d125f46?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80'">
+                        <img src="foto7.jpg" alt="Foto 7" class="photo-img" loading="lazy" onerror="this.style.display='none';">
                     </div>
                 </div>
             </div>
 
-            <div class="photo-card" style="--index: 7">
+            <div class="photo-card" data-index="7" style="animation-delay: 0.8s">
                 <div class="photo-number">08</div>
                 <div class="photo-frame">
                     <div class="photo-container">
-                        <img src="foto8.jpg" alt="Amor en cada detalle" class="photo-img" loading="lazy"
-                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1518568814500-bf0f8d125f46?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80'">
+                        <img src="foto8.jpg" alt="Foto 8" class="photo-img" loading="lazy" onerror="this.style.display='none';">
                     </div>
                 </div>
             </div>
 
-            <div class="photo-card" style="--index: 8">
+            <div class="photo-card" data-index="8" style="animation-delay: 0.9s">
                 <div class="photo-number">09</div>
                 <div class="photo-frame">
                     <div class="photo-container">
-                        <img src="foto9.jpg" alt="Para siempre juntos" class="photo-img" loading="lazy"
-                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1518568814500-bf0f8d125f46?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80'">
+                        <img src="foto9.jpg" alt="Foto 9" class="photo-img" loading="lazy" onerror="this.style.display='none';">
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Mensaje especial -->
         <div class="gallery-message">
             <div class="message-icon">
-                <i class="fas fa-heart"></i>
+                <i class="fas fa-star"></i>
             </div>
             <div class="message-text">
-                <p>Estas fotitos que tenemos tú y yo son los mejores recuerdos que hemos compartidos, donde nos divertíamos mucho y somos felices.</p>
-                <p>Cada imagen guarda un pedacito de nuestra historia, una sonrisa, un abrazo, un momento que nunca olvidaremos. TQM.</p>
-                <p><strong>Cada día a tu lado es un capítulo nuevo en nuestra historia de amor.</strong></p>
+                <p>Estás fotitos que tenemos tu y yo son los mejores recuerdos que hemos compartidos tú y yo donde nos divertíamos muchos y somos felices TQM.</p>
             </div>
-            <div class="message-emoji">💖✨</div>
         </div>
 
-        <!-- Botón de volver -->
+        <!-- Botón de volver al inicio mejorado y centrado -->
         <div class="back-btn-container">
             <a href="index.html" class="back-btn-improved">
                 <span class="back-btn-icon">
                     <i class="fas fa-arrow-left"></i>
                 </span>
-                VOLVER AL REGALO PRINCIPAL
+                VOLVER AL INICIO
             </a>
         </div>
     </div>
 
-    <!-- Footer -->
     <div class="gallery-footer">
-        <p class="footer-text">
-            Galería especial para San Valentín 2026<br>
-            Capturando momentos, creando recuerdos eternos<br>
-            <span style="color: var(--neon-pink); font-size: 1.2em;">❤️</span>
-        </p>
+        <p>Galería especial para San Valentín 2026</p>
+        <p>Recuerdos que duran para siempre</p>
     </div>
 
-    <!-- Control de música -->
     <div class="music-player">
         <button class="music-btn" id="playButton">
             <i class="fas fa-music"></i>
@@ -953,32 +889,40 @@
         let isMobile = window.innerWidth <= 768;
         let isLightboxOpen = false;
         let touchStartX = 0;
+        let touchStartY = 0;
 
-        // Sistema de partículas
-        function createParticles() {
-            const particlesContainer = document.getElementById('particles');
-            const particleCount = 30;
+        // Crear estrellas de fondo AZULES
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            const starCount = isMobile ? 80 : 150;
             
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
+            starsContainer.innerHTML = '';
+            
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
                 
-                const size = Math.random() * 4 + 2;
-                particle.style.width = `${size}px`;
-                particle.style.height = `${size}px`;
+                // Tamaños aleatorios
+                const sizes = ['small', 'medium', 'large'];
+                star.classList.add(sizes[Math.floor(Math.random() * sizes.length)]);
                 
-                const colors = ['#FF6B9D', '#FF8E53', '#6A11CB', '#00D4FF', '#B967FF'];
-                particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+                // Color azul con variaciones
+                const blueShades = ['#66B2FF', '#99CCFF', '#CCE5FF', '#B0E0E6'];
+                star.style.backgroundColor = blueShades[Math.floor(Math.random() * blueShades.length)];
                 
-                particle.style.left = `${Math.random() * 100}vw`;
-                particle.style.animationDelay = `${Math.random() * 15}s`;
-                particle.style.animationDuration = `${Math.random() * 10 + 10}s`;
+                // Posición aleatoria
+                star.style.left = `${Math.random() * 100}vw`;
+                star.style.top = `${Math.random() * 100}vh`;
                 
-                particlesContainer.appendChild(particle);
+                // Retraso de animación
+                star.style.animationDelay = `${Math.random() * 3}s`;
+                star.style.animationDuration = `${Math.random() * 2 + 1.5}s`;
+                
+                starsContainer.appendChild(star);
             }
         }
 
-        // Lightbox
+        // Lightbox profesional
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightboxImg');
         const lightboxCounter = document.getElementById('lightboxCounter');
@@ -986,11 +930,22 @@
         const prevBtn = document.getElementById('prevBtn');
         const nextBtn = document.getElementById('nextBtn');
         const photoCards = document.querySelectorAll('.photo-card');
+        const mobileInstruction = document.getElementById('mobileInstruction');
+        
+        // Ocultar instrucciones después de 5 segundos
+        if (isMobile) {
+            setTimeout(() => {
+                mobileInstruction.style.opacity = '0';
+                setTimeout(() => {
+                    mobileInstruction.style.display = 'none';
+                }, 500);
+            }, 5000);
+        }
         
         // Abrir lightbox
         function openLightbox(index) {
             const img = photoCards[index].querySelector('.photo-img');
-            if (img && img.src) {
+            if (img && img.src && !img.src.includes('data:')) {
                 currentIndex = index;
                 lightboxImg.src = img.src;
                 lightboxCounter.textContent = `${currentIndex + 1} / ${photoCards.length}`;
@@ -1001,6 +956,7 @@
                 // Ocultar controles en móviles
                 if (isMobile) {
                     document.querySelector('.music-player').style.opacity = '0';
+                    mobileInstruction.style.display = 'none';
                 }
             }
         }
@@ -1017,52 +973,79 @@
                     document.querySelector('.music-player').style.opacity = '1';
                 }, 300);
             }
+            
+            // Quitar clase tapped de todas las tarjetas
+            photoCards.forEach(card => {
+                card.classList.remove('tapped');
+            });
         }
         
         // Navegación de lightbox
         function navigate(direction) {
             currentIndex = (currentIndex + direction + photoCards.length) % photoCards.length;
             const img = photoCards[currentIndex].querySelector('.photo-img');
-            if (img && img.src) {
+            if (img && img.src && !img.src.includes('data:')) {
                 lightboxImg.src = img.src;
                 lightboxCounter.textContent = `${currentIndex + 1} / ${photoCards.length}`;
             }
         }
         
-        // Event listeners para fotos
+        // Detección de gestos táctiles para evitar abrir accidentalmente
         photoCards.forEach((card, index) => {
-            // Para desktop
-            if (!isMobile) {
-                card.addEventListener('click', () => openLightbox(index));
-            }
+            let tapStartTime = 0;
+            let tapStartX = 0;
+            let tapStartY = 0;
             
-            // Para móviles con mejor detección de taps
-            else {
-                let tapStartTime = 0;
-                let tapStartX = 0;
-                let tapStartY = 0;
+            // Touch start
+            card.addEventListener('touchstart', (e) => {
+                tapStartTime = Date.now();
+                tapStartX = e.touches[0].clientX;
+                tapStartY = e.touches[0].clientY;
+                card.classList.add('tapped');
+            }, { passive: true });
+            
+            // Touch end
+            card.addEventListener('touchend', (e) => {
+                const tapEndTime = Date.now();
+                const tapDuration = tapEndTime - tapStartTime;
                 
-                card.addEventListener('touchstart', (e) => {
-                    tapStartTime = Date.now();
-                    tapStartX = e.touches[0].clientX;
-                    tapStartY = e.touches[0].clientY;
-                }, { passive: true });
-                
-                card.addEventListener('touchend', (e) => {
-                    const tapEndTime = Date.now();
-                    const tapDuration = tapEndTime - tapStartTime;
+                // Solo abrir si fue un tap rápido (menos de 300ms)
+                // y con poco movimiento (menos de 10px)
+                if (tapDuration < 300) {
+                    const touch = e.changedTouches[0];
+                    const deltaX = Math.abs(touch.clientX - tapStartX);
+                    const deltaY = Math.abs(touch.clientY - tapStartY);
                     
-                    if (tapDuration < 300) {
-                        const touch = e.changedTouches[0];
-                        const deltaX = Math.abs(touch.clientX - tapStartX);
-                        const deltaY = Math.abs(touch.clientY - tapStartY);
-                        
-                        if (deltaX < 10 && deltaY < 10) {
-                            openLightbox(index);
-                        }
+                    if (deltaX < 10 && deltaY < 10) {
+                        // Fue un tap intencional, abrir lightbox
+                        openLightbox(index);
                     }
-                }, { passive: true });
-            }
+                }
+                
+                // Quitar clase tapped después de un tiempo
+                setTimeout(() => {
+                    card.classList.remove('tapped');
+                }, 150);
+            }, { passive: true });
+            
+            // Touch move - prevenir scroll accidental
+            card.addEventListener('touchmove', (e) => {
+                const touch = e.touches[0];
+                const deltaX = Math.abs(touch.clientX - tapStartX);
+                const deltaY = Math.abs(touch.clientY - tapStartY);
+                
+                // Si se está desplazando, quitar clase tapped
+                if (deltaX > 10 || deltaY > 10) {
+                    card.classList.remove('tapped');
+                }
+            }, { passive: true });
+            
+            // Click de ratón (para desktop)
+            card.addEventListener('click', (e) => {
+                if (!isMobile) {
+                    openLightbox(index);
+                }
+            });
         });
         
         // Event listeners para lightbox
@@ -1091,18 +1074,25 @@
         lightbox.addEventListener('touchstart', (e) => {
             if (!isMobile) return;
             touchStartX = e.touches[0].clientX;
+            touchStartY = e.touches[0].clientY;
         }, { passive: true });
         
         lightbox.addEventListener('touchend', (e) => {
             if (!isMobile || !isLightboxOpen) return;
             
             const touchEndX = e.changedTouches[0].clientX;
-            const deltaX = touchEndX - touchStartX;
+            const touchEndY = e.changedTouches[0].clientY;
             
-            if (Math.abs(deltaX) > 50) {
+            const deltaX = touchEndX - touchStartX;
+            const deltaY = touchEndY - touchStartY;
+            
+            // Solo considerar swipe si el movimiento fue principalmente horizontal
+            if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 50) {
                 if (deltaX > 0) {
+                    // Swipe derecho - foto anterior
                     navigate(-1);
                 } else {
+                    // Swipe izquierdo - foto siguiente
                     navigate(1);
                 }
             }
@@ -1115,18 +1105,13 @@
             }
         });
         
-        // Control de música mejorado
-        function initializeMusicPlayer() {
+        // Control de música MEJORADO para reproducción automática
+        document.addEventListener('DOMContentLoaded', function() {
             const audio = document.getElementById('birthdaySong');
             const playButton = document.getElementById('playButton');
             let isPlaying = false;
             
-            // Configurar audio
-            audio.volume = 0.3;
-            audio.preload = 'auto';
-            
-            // Intentar reproducir automáticamente
-            function tryAutoPlay() {
+            function startMusic() {
                 const playPromise = audio.play();
                 
                 if (playPromise !== undefined) {
@@ -1136,80 +1121,151 @@
                     }).catch(error => {
                         isPlaying = false;
                         playButton.innerHTML = '<i class="fas fa-play"></i>';
+                        
+                        document.addEventListener('click', function tryPlayOnInteraction() {
+                            audio.play().then(() => {
+                                isPlaying = true;
+                                playButton.innerHTML = '<i class="fas fa-music"></i>';
+                            }).catch(() => {
+                                isPlaying = false;
+                            });
+                            document.removeEventListener('click', tryPlayOnInteraction);
+                        }, { once: true });
                     });
                 }
             }
             
-            // Control de reproducción
-            playButton.addEventListener('click', function() {
-                if (isPlaying) {
-                    audio.pause();
-                    isPlaying = false;
-                    playButton.innerHTML = '<i class="fas fa-play"></i>';
-                } else {
+            audio.volume = 0.7;
+            audio.preload = 'auto';
+            
+            setTimeout(startMusic, 500);
+            
+            window.addEventListener('scroll', function tryPlayOnScroll() {
+                if (!isPlaying) {
                     audio.play().then(() => {
                         isPlaying = true;
                         playButton.innerHTML = '<i class="fas fa-music"></i>';
-                    });
+                    }).catch(() => {});
                 }
-            });
+                window.removeEventListener('scroll', tryPlayOnScroll);
+            }, { once: true });
             
-            // Intentar reproducción automática
-            setTimeout(tryAutoPlay, 1000);
-            
-            // Actualizar estado cuando la música termina
-            audio.addEventListener('ended', function() {
-                isPlaying = false;
-                playButton.innerHTML = '<i class="fas fa-play"></i>';
-            });
-            
-            // Verificar estado de la música
-            setInterval(() => {
-                if (audio.paused && isPlaying) {
-                    isPlaying = false;
+            playButton.addEventListener('click', function() {
+                if (isPlaying) {
+                    audio.pause();
                     playButton.innerHTML = '<i class="fas fa-play"></i>';
+                    isPlaying = false;
+                } else {
+                    audio.play();
+                    playButton.innerHTML = '<i class="fas fa-music"></i>';
+                    isPlaying = true;
                 }
-            }, 5000);
-        }
-        
-        // Inicializar cuando el DOM esté listo
-        document.addEventListener('DOMContentLoaded', function() {
-            // Inicializar controles
-            initializeMusicPlayer();
-            createParticles();
+            });
             
-            // Ajustar animaciones escalonadas
+            // Inicializar estrellas AZULES
+            createStars();
+            
+            // Animaciones escalonadas para las tarjetas
             photoCards.forEach((card, index) => {
                 card.style.animationDelay = `${index * 0.1}s`;
+                card.style.animationFillMode = 'forwards';
             });
             
-            // Precargar imágenes
-            const imageUrls = [];
-            for (let i = 1; i <= 9; i++) {
-                imageUrls.push(`foto${i}.jpg`);
-            }
+            // Verificar estado de la música cada 5 segundos
+            setInterval(() => {
+                if (audio.paused && isPlaying) {
+                    audio.play().catch(() => {
+                        isPlaying = false;
+                        playButton.innerHTML = '<i class="fas fa-play"></i>';
+                    });
+                }
+            }, 5000);
+        });
+        
+        // Asegurar que todas las fotos tengan el mismo tamaño
+        function equalizePhotoHeights() {
+            if (isMobile) return;
+            
+            const photoContainers = document.querySelectorAll('.photo-container');
+            let maxHeight = 0;
+            
+            photoContainers.forEach(container => {
+                container.style.height = '';
+            });
+            
+            photoContainers.forEach(container => {
+                const height = container.offsetHeight;
+                if (height > maxHeight) {
+                    maxHeight = height;
+                }
+            });
+            
+            photoContainers.forEach(container => {
+                container.style.height = `${maxHeight}px`;
+            });
+        }
+        
+        // Precargar imágenes
+        function preloadImages() {
+            const imageUrls = [
+                "foto1.jpg",
+                "foto2.jpg",
+                "foto3.jpg",
+                "foto4.jpg",
+                "foto5.jpg",
+                "foto6.jpg",
+                "foto7.jpg",
+                "foto8.jpg",
+                "foto9.jpg"
+            ];
             
             imageUrls.forEach(url => {
                 const img = new Image();
                 img.src = url;
+                img.onload = () => {};
+                img.onerror = () => {
+                    console.log(`Error al cargar: ${url}`);
+                };
             });
+        }
+        
+        // Inicializar todo cuando cargue la página
+        window.addEventListener('load', () => {
+            preloadImages();
+            equalizePhotoHeights();
+            
+            setTimeout(equalizePhotoHeights, 300);
         });
         
         // Detectar cambios de tamaño
+        let resizeTimer;
         window.addEventListener('resize', () => {
-            isMobile = window.innerWidth <= 768;
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                isMobile = window.innerWidth <= 768;
+                createStars();
+                if (!isMobile) {
+                    equalizePhotoHeights();
+                }
+            }, 250);
         });
         
-        // Efecto de entrada para las tarjetas
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                }
-            });
-        }, { threshold: 0.1 });
+        // Forzar igualación de alturas después de que todo cargue
+        window.addEventListener('load', () => {
+            setTimeout(equalizePhotoHeights, 1000);
+        });
         
-        photoCards.forEach(card => observer.observe(card));
+        // Intentar reproducir música cuando la página gane foco
+        window.addEventListener('focus', function() {
+            const audio = document.getElementById('birthdaySong');
+            const playButton = document.getElementById('playButton');
+            
+            if (!audio.paused) return;
+            
+            audio.play().then(() => {
+                playButton.innerHTML = '<i class="fas fa-music"></i>';
+            }).catch(() => {});
+        });
     </script>
 </body>
 </html>
