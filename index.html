@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>¡Feliz 14 de febrero, mi amor! 💙</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -13,12 +14,13 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Roboto Mono', 'Courier New', monospace;
             background: linear-gradient(135deg, #0a0a2a 0%, #1a1a4a 50%, #2a2a6a 100%);
             min-height: 100vh;
             color: #fff;
             overflow-x: hidden;
             position: relative;
+            letter-spacing: 0.5px;
         }
 
         /* Estrellas de fondo AZULES */
@@ -89,11 +91,13 @@
             padding: 15px 30px;
             border-radius: 50px;
             font-size: 1.2em;
-            font-weight: bold;
+            font-weight: 600;
             margin-bottom: 20px;
             box-shadow: 0 0 25px rgba(0, 102, 204, 0.4);
             animation: badgePulse 2s infinite;
             color: white;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
         @keyframes badgePulse {
@@ -109,11 +113,14 @@
             color: transparent;
             margin-bottom: 10px;
             text-shadow: 0 0 30px rgba(0, 102, 204, 0.3);
+            font-weight: 700;
+            letter-spacing: 2px;
         }
 
         @media (max-width: 768px) {
             .main-title {
                 font-size: 2.8em;
+                letter-spacing: 1px;
             }
         }
 
@@ -132,6 +139,7 @@
                 inset 0 1px 0 rgba(255, 255, 255, 0.2);
             position: relative;
             overflow: hidden;
+            transition: all 0.3s ease;
         }
 
         .birthday-card::before {
@@ -157,11 +165,14 @@
             margin: 30px 0;
             position: relative;
             text-shadow: 0 0 50px rgba(0, 102, 204, 0.2);
+            font-family: 'Roboto Mono', monospace;
+            letter-spacing: 5px;
         }
 
         @media (max-width: 768px) {
             .big-number {
                 font-size: 8em;
+                letter-spacing: 3px;
             }
         }
 
@@ -177,14 +188,17 @@
             margin-bottom: 10px;
             color: #fff;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            letter-spacing: 3px;
+            text-transform: uppercase;
         }
 
         .birth-date {
             font-size: 1.3em;
             color: #CCE5FF;
-            font-weight: 600;
-            letter-spacing: 2px;
+            font-weight: 500;
+            letter-spacing: 3px;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            margin-top: 10px;
         }
 
         /* Mensaje */
@@ -211,10 +225,13 @@
             font-size: 1.2em;
             line-height: 1.8;
             color: #f0f0f0;
+            font-weight: 400;
+            text-align: justify;
         }
 
         .message-text p {
             margin-bottom: 20px;
+            padding: 0 10px;
         }
 
         /* Botones */
@@ -240,6 +257,9 @@
             overflow: hidden;
             border: none;
             cursor: pointer;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-family: 'Roboto Mono', monospace;
         }
 
         .btn-primary {
@@ -259,6 +279,7 @@
         .btn:hover {
             transform: translateY(-5px);
             box-shadow: 0 15px 30px rgba(0, 102, 204, 0.4);
+            letter-spacing: 1.5px;
         }
 
         .btn-primary:hover {
@@ -289,12 +310,16 @@
             margin-bottom: 15px;
             font-weight: 600;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
         .dedication-text {
             font-size: 1.1em;
             line-height: 1.6;
             color: #f0f0f0;
+            font-weight: 400;
+            padding: 0 15px;
         }
 
         /* Contador regresivo */
@@ -304,7 +329,7 @@
             padding: 30px;
             margin: 40px 0;
             width: 100%;
-            max-width: 600px;
+            max-width: 800px;
             text-align: center;
             border: 2px solid rgba(102, 178, 255, 0.4);
         }
@@ -314,12 +339,15 @@
             margin-bottom: 25px;
             color: #CCE5FF;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 600;
         }
 
         .countdown-timer {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 30px;
             flex-wrap: wrap;
         }
 
@@ -327,25 +355,30 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            min-width: 120px;
         }
 
         .countdown-number {
-            font-size: 2.5em;
+            font-size: 2.8em;
             font-weight: 700;
             background: linear-gradient(45deg, #0066CC, #66B2FF);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
             line-height: 1;
+            font-family: 'Roboto Mono', monospace;
+            letter-spacing: 3px;
+            text-shadow: 0 0 20px rgba(0, 102, 204, 0.3);
         }
 
         .countdown-label {
             font-size: 0.9em;
             color: #CCE5FF;
-            margin-top: 5px;
+            margin-top: 8px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             opacity: 0.9;
+            font-weight: 500;
         }
 
         /* Decoraciones flotantes con corazones y estrellas */
@@ -373,6 +406,12 @@
             border-top: 1px solid rgba(102, 178, 255, 0.3);
             background: rgba(10, 10, 42, 0.3);
             border-radius: 15px;
+            letter-spacing: 1px;
+        }
+
+        .footer p {
+            margin: 10px 0;
+            font-weight: 300;
         }
 
         /* Responsive */
@@ -402,6 +441,44 @@
             
             .countdown-number {
                 font-size: 2em;
+            }
+            
+            .countdown-item {
+                min-width: 80px;
+            }
+        }
+
+        /* Vista de ordenador específica */
+        @media (min-width: 1024px) {
+            .countdown {
+                margin-left: auto;
+                margin-right: auto;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            .countdown-timer {
+                width: 100%;
+                justify-content: space-around;
+                max-width: 700px;
+            }
+            
+            .countdown-item {
+                min-width: 150px;
+            }
+            
+            .countdown-number {
+                font-size: 3.2em;
+            }
+            
+            .birthday-card {
+                padding: 50px;
+            }
+            
+            .main-title {
+                font-size: 4.5em;
             }
         }
 
@@ -447,6 +524,18 @@
             0% { background-position: -200% -200%; }
             100% { background-position: 200% 200%; }
         }
+        
+        /* Animación de escritura para el mensaje */
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        
+        .typing-animation {
+            overflow: hidden;
+            white-space: nowrap;
+            animation: typing 3.5s steps(40, end);
+        }
     </style>
 </head>
 <body>
@@ -475,7 +564,7 @@
             <div class="big-number">4</div>
             
             <div class="personal-info">
-                <h2 class="name">DRAGO</h2>
+                <h2 class="name">ALICIA</h2>
                 <div class="birth-date">
                     <i class="fas fa-calendar-alt"></i> INICIO DE NUESTRA RELACIÓN: 19/03/2022
                 </div>
@@ -493,7 +582,7 @@
                     <i class="fas fa-heart"></i> UNA DEDICATORIA ESPECIAL
                 </div>
                 <div class="dedication-text">
-                    Casa momento que paso contigo es muy bonito ya que me haces sentir bien, desde pequeñas salidas hasta ir de compras y al cine. Me haces sentir mejor y feliz.<br><br>
+                    Cada momento que paso contigo es muy bonito ya que me haces sentir bien, desde pequeñas salidas hasta ir de compras y al cine. Me haces sentir mejor y feliz.<br><br>
                     <strong>4 años de amistad y amor</strong>, y cada día te amo más.
                 </div>
             </div>
@@ -546,20 +635,16 @@
                 const star = document.createElement('div');
                 star.className = 'star';
                 
-                // Tamaño aleatorio
                 const size = Math.random() * 3 + 1;
                 star.style.width = `${size}px`;
                 star.style.height = `${size}px`;
                 
-                // Color azul con variaciones
                 const blueShades = ['#66B2FF', '#99CCFF', '#CCE5FF', '#B0E0E6'];
                 star.style.backgroundColor = blueShades[Math.floor(Math.random() * blueShades.length)];
                 
-                // Posición aleatoria
                 star.style.left = `${Math.random() * 100}vw`;
                 star.style.top = `${Math.random() * 100}vh`;
                 
-                // Retraso de animación
                 star.style.animationDelay = `${Math.random() * 3}s`;
                 star.style.animationDuration = `${Math.random() * 2 + 2}s`;
                 
@@ -571,7 +656,7 @@
         function updateCountdown() {
             const now = new Date();
             const currentYear = now.getFullYear();
-            let nextValentine = new Date(currentYear, 1, 14); // 14 de Febrero
+            let nextValentine = new Date(currentYear, 1, 14);
             
             if (now > nextValentine) {
                 nextValentine = new Date(currentYear + 1, 1, 14);
@@ -633,6 +718,23 @@
             }
         }
 
+        // Efecto de escritura para el título
+        function typeWriterEffect() {
+            const title = document.querySelector('.main-title');
+            const text = title.textContent;
+            title.textContent = '';
+            
+            let i = 0;
+            function type() {
+                if (i < text.length) {
+                    title.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(type, 100);
+                }
+            }
+            setTimeout(type, 1000);
+        }
+
         // Inicializar todo
         document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('confettiBtn').addEventListener('click', function() {
@@ -649,6 +751,7 @@
             
             setTimeout(() => {
                 createConfetti();
+                typeWriterEffect();
             }, 2000);
             
             setInterval(() => {
