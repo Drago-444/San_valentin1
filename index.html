@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>✨ Para Mi Amor - 14 de Febrero ✨</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --gradient-1: #FF6B9D;
+            --gradient-2: #FF8E53;
+            --gradient-3: #6A11CB;
+            --dark-bg: #0f0f1f;
+            --card-bg: rgba(255, 255, 255, 0.08);
+            --neon-pink: #FF2E93;
+            --neon-blue: #00D4FF;
+            --neon-purple: #B967FF;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Poppins', sans-serif;
+            background: var(--dark-bg);
+            color: #fff;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Fondo animado con gradientes móviles */
+        .gradient-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(255, 107, 157, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(106, 17, 203, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(255, 142, 83, 0.15) 0%, transparent 50%);
+            background-size: 300% 300%;
+            animation: gradientMove 20s ease infinite alternate;
+        }
+
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        /* Efecto de partículas */
+        .particles {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            background: var(--neon-pink);
+            border-radius: 50%;
+            animation: floatParticle 15s linear infinite;
+        }
+
+        @keyframes floatParticle {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Contenedor principal */
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header mejorado con efecto neón */
+        .header {
+            text-align: center;
+            padding: 60px 20px 40px;
+            position: relative;
+        }
+
+        .date-badge {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(90deg, var(--gradient-1), var(--gradient-2));
+            border-radius: 50px;
+            font-size: 1.1em;
+            font-weight: 600;
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 
+                0 10px 30px rgba(255, 107, 157, 0.3),
+                0 0 0 2px rgba(255, 255, 255, 0.1);
+            animation: badgeGlow 3s infinite alternate;
+        }
+
+        @keyframes badgeGlow {
+            0%, 100% {
+                box-shadow: 
+                    0 10px 30px rgba(255, 107, 157, 0.3),
+                    0 0 0 2px rgba(255, 255, 255, 0.1);
+            }
+            50% {
+                box-shadow: 
+                    0 10px 40px rgba(255, 107, 157, 0.6),
+                    0 0 0 3px rgba(255, 255, 255, 0.2);
+            }
+        }
+
+        .main-title {
+            font-size: 4.5em;
+            background: linear-gradient(45deg, var(--gradient-1), var(--gradient-2), var(--gradient-3));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin: 20px 0 10px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-shadow: 0 0 30px rgba(255, 107, 157, 0.3);
+            background-size: 200% auto;
+            animation: titleShine 3s infinite alternate;
+        }
+
+        @keyframes titleShine {
+            0% {
+                background-position: 0% 50%;
+            }
+            100% {
+                background-position: 100% 50%;
+            }
+        }
+
+        .subtitle {
+            font-size: 1.3em;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        /* Tarjeta principal con efecto 3D */
+        .main-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 50px;
+            margin: 40px 0;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 
+                0 25px 50px rgba(0, 0, 0, 0.25),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            transform-style: preserve-3d;
+            perspective: 1000px;
+            transition: transform 0.3s ease;
+        }
+
+        .main-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .main-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(255, 255, 255, 0.1),
+                transparent);
+            transition: 0.5s;
+        }
+
+        .main-card:hover::before {
+            left: 100%;
+        }
+
+        /* Número de años - Diseño futurista */
+        .years-display {
+            text-align: center;
+            margin: 40px 0;
+            position: relative;
+        }
+
+        .years-number {
+            font-size: 10em;
+            font-weight: 900;
+            background: linear-gradient(45deg, var(--gradient-1), var(--gradient-2), var(--gradient-3));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1;
+            display: inline-block;
+            position: relative;
+            text-shadow: 
+                0 0 30px rgba(255, 107, 157, 0.4),
+                0 0 60px rgba(255, 107, 157, 0.2);
+            animation: numberPulse 2s infinite alternate;
+        }
+
+        @keyframes numberPulse {
+            0% {
+                transform: scale(1);
+                text-shadow: 
+                    0 0 30px rgba(255, 107, 157, 0.4),
+                    0 0 60px rgba(255, 107, 157, 0.2);
+            }
+            100% {
+                transform: scale(1.05);
+                text-shadow: 
+                    0 0 40px rgba(255, 107, 157, 0.6),
+                    0 0 80px rgba(255, 107, 157, 0.3);
+            }
+        }
+
+        .years-label {
+            font-size: 1.2em;
+            color: var(--neon-blue);
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-top: 20px;
+            display: inline-block;
+            padding: 10px 20px;
+            border: 2px solid var(--neon-blue);
+            border-radius: 50px;
+            background: rgba(0, 212, 255, 0.1);
+        }
+
+        /* Información personal mejorada */
+        .personal-info {
+            text-align: center;
+            margin: 50px 0;
+        }
+
+        .name-display {
+            font-size: 3.5em;
+            font-weight: 300;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .name-display::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gradient-1), var(--gradient-2));
+            border-radius: 2px;
+        }
+
+        .relationship-info {
+            font-size: 1.2em;
+            color: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px 40px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-top: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .relationship-info i {
+            color: var(--neon-pink);
+            margin-right: 10px;
+        }
+
+        /* Mensaje en tarjeta holográfica */
+        .message-hologram {
+            background: linear-gradient(135deg, 
+                rgba(255, 107, 157, 0.1),
+                rgba(106, 17, 203, 0.1));
+            border-radius: 25px;
+            padding: 40px;
+            margin: 40px 0;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+        }
+
+        .message-hologram::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, 
+                transparent, 
+                rgba(255, 255, 255, 0.1), 
+                transparent);
+            transform: rotate(45deg);
+            animation: hologramShine 3s linear infinite;
+        }
+
+        @keyframes hologramShine {
+            0% { transform: rotate(45deg) translateX(-100%); }
+            100% { transform: rotate(45deg) translateX(100%); }
+        }
+
+        .message-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .message-text {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.95);
+            text-align: center;
+        }
+
+        .message-text p {
+            margin-bottom: 20px;
+        }
+
+        /* Botones con efecto de onda */
+        .buttons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin: 50px 0;
+        }
+
+        .action-btn {
+            padding: 25px 30px;
+            background: linear-gradient(135deg, 
+                rgba(255, 107, 157, 0.2),
+                rgba(106, 17, 203, 0.2));
+            border: none;
+            border-radius: 20px;
+            color: white;
+            font-size: 1.1em;
+            font-weight: 600;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            cursor: pointer;
+        }
+
+        .action-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .action-btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .action-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(255, 107, 157, 0.3);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .action-btn i {
+            font-size: 1.4em;
+            transition: transform 0.3s ease;
+        }
+
+        .action-btn:hover i {
+            transform: scale(1.2);
+        }
+
+        /* Contador regresivo con diseño espacial */
+        .countdown-container {
+            background: linear-gradient(135deg, 
+                rgba(255, 107, 157, 0.1),
+                rgba(106, 17, 203, 0.1));
+            border-radius: 25px;
+            padding: 40px;
+            margin: 50px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .countdown-title {
+            font-size: 1.8em;
+            color: var(--neon-blue);
+            margin-bottom: 30px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .countdown-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 20px;
+        }
+
+        .countdown-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 25px 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .countdown-item:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--neon-pink);
+        }
+
+        .countdown-number {
+            font-size: 2.8em;
+            font-weight: 700;
+            background: linear-gradient(45deg, var(--gradient-1), var(--gradient-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        .countdown-label {
+            font-size: 0.9em;
+            color: rgba(255, 255, 255, 0.7);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Footer elegante */
+        .footer {
+            text-align: center;
+            padding: 50px 20px;
+            margin-top: 50px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gradient-1), var(--gradient-2));
+            border-radius: 2px;
+        }
+
+        .footer-text {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9em;
+            line-height: 1.6;
+        }
+
+        .footer-heart {
+            color: var(--neon-pink);
+            margin: 0 5px;
+            animation: heartbeat 1.5s infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        /* Control de música flotante */
+        .music-control {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+        }
+
+        .music-btn {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2));
+            border: none;
+            color: white;
+            font-size: 1.6em;
+            cursor: pointer;
+            box-shadow: 
+                0 15px 35px rgba(255, 107, 157, 0.3),
+                0 0 0 2px rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .music-btn::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, 
+                transparent, 
+                rgba(255, 255, 255, 0.2), 
+                transparent);
+            animation: rotate 3s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .music-btn:hover {
+            transform: scale(1.1) rotate(15deg);
+            box-shadow: 
+                0 20px 40px rgba(255, 107, 157, 0.5),
+                0 0 0 3px rgba(255, 255, 255, 0.2);
+        }
+
+        /* Efecto de confeti mejorado */
+        .confetti {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            opacity: 0;
+            z-index: 1000;
+            pointer-events: none;
+            background: linear-gradient(45deg, var(--gradient-1), var(--gradient-2));
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+            animation: confettiFall 5s ease-in-out forwards;
+        }
+
+        @keyframes confettiFall {
+            0% {
+                transform: translateY(-100px) rotate(0deg) scale(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(720deg) scale(1);
+                opacity: 0;
+            }
+        }
+
+        /* Corazones flotantes para efecto de amor */
+        .floating-heart {
+            position: fixed;
+            font-size: 24px;
+            color: var(--neon-pink);
+            z-index: 1000;
+            pointer-events: none;
+            text-shadow: 0 0 10px currentColor;
+            animation: floatUp 3s ease-in forwards;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) rotate(0deg) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg) scale(0);
+                opacity: 0;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2.8em;
+            }
+            
+            .years-number {
+                font-size: 6em;
+            }
+            
+            .name-display {
+                font-size: 2.5em;
+            }
+            
+            .main-card {
+                padding: 30px 20px;
+            }
+            
+            .buttons-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .countdown-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .music-control {
+                bottom: 20px;
+                right: 20px;
+            }
+            
+            .music-btn {
+                width: 60px;
+                height: 60px;
+                font-size: 1.4em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-title {
+                font-size: 2.2em;
+            }
+            
+            .years-number {
+                font-size: 4em;
+            }
+            
+            .countdown-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+            
+            .countdown-number {
+                font-size: 2.2em;
+            }
+        }
+
+        /* Scroll suave */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Prevenir selección de texto en elementos interactivos */
+        .action-btn, .music-btn, .confetti, .floating-heart {
+            user-select: none;
+            -webkit-user-select: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Audio para la canción -->
+    <audio id="birthdaySong" loop preload="auto">
+        <source src="https://assets.mixkit.co/music/preview/mixkit-valentines-day-327.mp3" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+
+    <!-- Fondo animado -->
+    <div class="gradient-bg"></div>
+    <div class="particles" id="particles"></div>
+
+    <div class="main-container">
+        <div class="header">
+            <div class="date-badge">
+                <i class="fas fa-heart"></i> 14 DE FEBRERO 2026
+            </div>
+            <h1 class="main-title">PARA MI AMOR</h1>
+            <p class="subtitle">Un regalo especial para celebrar nuestro amor en este día tan especial</p>
+        </div>
+
+        <div class="main-card">
+            <div class="years-display">
+                <div class="years-number">4</div>
+                <div class="years-label">AÑOS JUNTOS</div>
+            </div>
+
+            <div class="personal-info">
+                <h2 class="name-display">DRAGO</h2>
+                <div class="relationship-info">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>Desde el 19 de Marzo de 2022</span>
+                </div>
+            </div>
+
+            <div class="message-hologram">
+                <div class="message-content">
+                    <div class="message-text">
+                        <p>Feliz día mi amorcito(a) mejor amiguito(a) hermanito(a), etc. Te deseo lo mejor espero que lo pases bonitoo este 14 de febrero y también conmigo gracias por llegar a mi vida y hacerme feliz te quieroo mucho.</p>
+                        
+                        <p>Cada momento que paso contigo es muy bonito ya que me haces sentir bien, desde pequeñas salidas hasta ir de compras y al cine. Me haces sentir mejor y feliz.</p>
+                        
+                        <p><strong>4 años de amistad y amor</strong>, y cada día te amo más.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="buttons-grid">
+                <a href="fotos.html" class="action-btn">
+                    <i class="fas fa-images"></i>
+                    <span>VER NUESTRAS FOTOS</span>
+                </a>
+                <button class="action-btn" id="confettiBtn">
+                    <i class="fas fa-party-horn"></i>
+                    <span>¡CELEBRAR!</span>
+                </button>
+                <button class="action-btn" id="loveBtn">
+                    <i class="fas fa-heart"></i>
+                    <span>ENVIAR AMOR</span>
+                </button>
+            </div>
+
+            <div class="countdown-container">
+                <h3 class="countdown-title">PRÓXIMO SAN VALENTÍN</h3>
+                <div class="countdown-grid">
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="days">365</div>
+                        <div class="countdown-label">Días</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="hours">23</div>
+                        <div class="countdown-label">Horas</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="minutes">59</div>
+                        <div class="countdown-label">Minutos</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="seconds">59</div>
+                        <div class="countdown-label">Segundos</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p class="footer-text">
+                Hecho con <span class="footer-heart"><i class="fas fa-heart"></i></span> para Drago<br>
+                Un regalo digital especial para San Valentín 2026<br>
+                © 2026 - Todos los momentos especiales guardados aquí
+            </p>
+        </div>
+    </div>
+
+    <!-- Control de música flotante -->
+    <div class="music-control">
+        <button class="music-btn" id="playButton">
+            <i class="fas fa-play"></i>
+        </button>
+    </div>
+
+    <script>
+        // Sistema de partículas
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 30;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                
+                // Tamaño aleatorio
+                const size = Math.random() * 4 + 2;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                // Color aleatorio del gradiente
+                const colors = ['#FF6B9D', '#FF8E53', '#6A11CB', '#00D4FF', '#B967FF'];
+                particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+                
+                // Posición inicial aleatoria
+                particle.style.left = `${Math.random() * 100}vw`;
+                
+                // Retraso de animación
+                particle.style.animationDelay = `${Math.random() * 15}s`;
+                particle.style.animationDuration = `${Math.random() * 10 + 10}s`;
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Contador regresivo mejorado
+        function updateCountdown() {
+            const now = new Date();
+            const currentYear = now.getFullYear();
+            let nextValentine = new Date(currentYear, 1, 14);
+            
+            if (now > nextValentine) {
+                nextValentine = new Date(currentYear + 1, 1, 14);
+            }
+            
+            const diff = nextValentine - now;
+            
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            document.getElementById('days').textContent = days.toString().padStart(3, '0');
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+            
+            // Efecto especial cuando faltan menos de 10 segundos
+            if (days === 0 && hours === 0 && minutes === 0 && seconds < 10) {
+                document.querySelectorAll('.countdown-number').forEach(el => {
+                    el.style.animation = 'numberPulse 0.5s infinite alternate';
+                });
+            }
+        }
+
+        // Confeti mejorado
+        function createConfetti() {
+            const colors = ['#FF6B9D', '#FF8E53', '#6A11CB', '#00D4FF', '#B967FF', '#FFFFFF'];
+            
+            for (let i = 0; i < 150; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    
+                    // Color aleatorio
+                    confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+                    
+                    // Tamaño aleatorio
+                    const size = Math.random() * 20 + 10;
+                    confetti.style.width = `${size}px`;
+                    confetti.style.height = `${size}px`;
+                    
+                    // Posición inicial aleatoria
+                    confetti.style.left = `${Math.random() * 100}vw`;
+                    confetti.style.top = `${Math.random() * 100}vh`;
+                    
+                    // Duración y retraso aleatorios
+                    confetti.style.animationDelay = `${Math.random() * 0.5}s`;
+                    confetti.style.animationDuration = `${Math.random() * 3 + 2}s`;
+                    
+                    // Rotación aleatoria
+                    confetti.style.transform += ` rotate(${Math.random() * 360}deg)`;
+                    
+                    document.body.appendChild(confetti);
+                    
+                    // Eliminar después de la animación
+                    setTimeout(() => {
+                        if (confetti.parentNode) {
+                            confetti.remove();
+                        }
+                    }, 6000);
+                }, i * 20);
+            }
+            
+            // Sonido de celebración
+            playCelebrationSound();
+        }
+
+        function playCelebrationSound() {
+            try {
+                const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                
+                // Crear un sonido de celebración simple
+                for (let i = 0; i < 5; i++) {
+                    setTimeout(() => {
+                        const oscillator = audioContext.createOscillator();
+                        const gainNode = audioContext.createGain();
+                        
+                        oscillator.connect(gainNode);
+                        gainNode.connect(audioContext.destination);
+                        
+                        oscillator.frequency.value = 400 + Math.random() * 400;
+                        oscillator.type = 'sine';
+                        
+                        gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
+                        gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5);
+                        
+                        oscillator.start(audioContext.currentTime);
+                        oscillator.stop(audioContext.currentTime + 0.5);
+                    }, i * 100);
+                }
+            } catch (e) {
+                console.log("Audio context no disponible");
+            }
+        }
+
+        // Efecto de enviar amor
+        function createLoveEffect() {
+            const heartCount = 30;
+            const heartEmojis = ['❤️', '💖', '💕', '💗', '💓', '💞'];
+            
+            for (let i = 0; i < heartCount; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.className = 'floating-heart';
+                    heart.innerHTML = heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
+                    
+                    // Tamaño aleatorio
+                    const size = Math.random() * 30 + 20;
+                    heart.style.fontSize = `${size}px`;
+                    
+                    // Posición inicial aleatoria
+                    heart.style.left = `${Math.random() * 100}vw`;
+                    heart.style.top = `${window.innerHeight}px`;
+                    
+                    // Color aleatorio
+                    const colors = ['#FF6B9D', '#FF2E93', '#FF8E53', '#B967FF'];
+                    heart.style.color = colors[Math.floor(Math.random() * colors.length)];
+                    
+                    // Duración aleatoria
+                    const duration = Math.random() * 2 + 2;
+                    heart.style.animationDuration = `${duration}s`;
+                    
+                    document.body.appendChild(heart);
+                    
+                    // Eliminar después de la animación
+                    setTimeout(() => {
+                        if (heart.parentNode) {
+                            heart.remove();
+                        }
+                    }, duration * 1000);
+                }, i * 100);
+            }
+            
+            // Efecto de sonido para el amor
+            playLoveSound();
+        }
+
+        function playLoveSound() {
+            try {
+                const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                
+                const oscillator = audioContext.createOscillator();
+                const gainNode = audioContext.createGain();
+                
+                oscillator.connect(gainNode);
+                gainNode.connect(audioContext.destination);
+                
+                oscillator.frequency.setValueAtTime(440, audioContext.currentTime);
+                oscillator.frequency.exponentialRampToValueAtTime(880, audioContext.currentTime + 0.5);
+                
+                oscillator.type = 'sine';
+                
+                gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.8);
+                
+                oscillator.start(audioContext.currentTime);
+                oscillator.stop(audioContext.currentTime + 0.8);
+            } catch (e) {
+                console.log("Audio context no disponible para efecto de amor");
+            }
+        }
+
+        // Control de música mejorado
+        function initializeMusicPlayer() {
+            const audio = document.getElementById('birthdaySong');
+            const playButton = document.getElementById('playButton');
+            let isPlaying = false;
+            
+            // Configurar audio
+            audio.volume = 0.3;
+            audio.preload = 'auto';
+            
+            // Intentar reproducir automáticamente después de la interacción del usuario
+            function tryAutoPlay() {
+                const playPromise = audio.play();
+                
+                if (playPromise !== undefined) {
+                    playPromise.then(() => {
+                        isPlaying = true;
+                        updatePlayButton();
+                    }).catch(error => {
+                        console.log("Reproducción automática bloqueada, esperando interacción del usuario");
+                        isPlaying = false;
+                        updatePlayButton();
+                    });
+                }
+            }
+            
+            // Actualizar botón de reproducción
+            function updatePlayButton() {
+                if (isPlaying) {
+                    playButton.innerHTML = '<i class="fas fa-pause"></i>';
+                    playButton.style.animation = 'rotate 3s linear infinite';
+                } else {
+                    playButton.innerHTML = '<i class="fas fa-play"></i>';
+                    playButton.style.animation = 'none';
+                }
+            }
+            
+            // Control de reproducción
+            playButton.addEventListener('click', function() {
+                if (isPlaying) {
+                    audio.pause();
+                    isPlaying = false;
+                } else {
+                    audio.play().then(() => {
+                        isPlaying = true;
+                    }).catch(error => {
+                        console.log("Error al reproducir música:", error);
+                    });
+                }
+                updatePlayButton();
+            });
+            
+            // Intentar reproducción automática después de un retraso
+            setTimeout(tryAutoPlay, 1000);
+            
+            // Actualizar estado cuando la música termina
+            audio.addEventListener('ended', function() {
+                isPlaying = false;
+                updatePlayButton();
+            });
+            
+            // Actualizar estado cuando hay un error
+            audio.addEventListener('error', function() {
+                isPlaying = false;
+                updatePlayButton();
+                console.log("Error al cargar la música");
+            });
+            
+            return { audio, playButton, isPlaying, updatePlayButton };
+        }
+
+        // Inicializar cuando el DOM esté listo
+        document.addEventListener('DOMContentLoaded', function() {
+            // Inicializar controles de música
+            const musicPlayer = initializeMusicPlayer();
+            
+            // Configurar botones de interacción
+            document.getElementById('confettiBtn').addEventListener('click', createConfetti);
+            document.getElementById('loveBtn').addEventListener('click', createLoveEffect);
+            
+            // Inicializar efectos visuales
+            createParticles();
+            updateCountdown();
+            
+            // Actualizar contador cada segundo
+            setInterval(updateCountdown, 1000);
+            
+            // Efecto aleatorio de confeti cada 45 segundos
+            setInterval(() => {
+                if (Math.random() > 0.7) {
+                    createConfetti();
+                }
+            }, 45000);
+            
+            // Efecto aleatorio de corazones cada 60 segundos
+            setInterval(() => {
+                if (Math.random() > 0.8) {
+                    createLoveEffect();
+                }
+            }, 60000);
+            
+            // Efecto de parallax en la tarjeta principal
+            const mainCard = document.querySelector('.main-card');
+            
+            mainCard.addEventListener('mousemove', (e) => {
+                const rect = mainCard.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateY = (x - centerX) / 20;
+                const rotateX = (centerY - y) / 20;
+                
+                mainCard.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px)`;
+            });
+            
+            mainCard.addEventListener('mouseleave', () => {
+                mainCard.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
+            });
+            
+            // Verificar estado de la música periódicamente
+            setInterval(() => {
+                const audio = musicPlayer.audio;
+                if (!audio.paused && !musicPlayer.isPlaying) {
+                    musicPlayer.isPlaying = true;
+                    musicPlayer.updatePlayButton();
+                }
+            }, 1000);
+            
+            // Efecto de carga inicial
+            setTimeout(() => {
+                createConfetti();
+            }, 1500);
+        });
+
+        // Manejar la visibilidad de la página para controlar la música
+        document.addEventListener('visibilitychange', function() {
+            const audio = document.getElementById('birthdaySong');
+            if (document.hidden) {
+                audio.pause();
+            } else {
+                audio.play().catch(e => console.log("No se pudo reanudar la música automáticamente"));
+            }
+        });
+    </script>
+</body>
+</html>
