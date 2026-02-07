@@ -362,36 +362,6 @@
             50% { transform: translateY(-20px) rotate(10deg); }
         }
 
-        /* Control de música */
-        .music-player {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 1000;
-        }
-
-        .music-btn {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: linear-gradient(45deg, #0066CC, #66B2FF);
-            border: 2px solid white;
-            color: white;
-            font-size: 1.5em;
-            cursor: pointer;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .music-btn:hover {
-            transform: scale(1.1) rotate(10deg);
-            box-shadow: 0 15px 30px rgba(0, 102, 204, 0.4);
-            background: linear-gradient(45deg, #66B2FF, #0066CC);
-        }
-
         /* Footer */
         .footer {
             text-align: center;
@@ -432,17 +402,6 @@
             
             .countdown-number {
                 font-size: 2em;
-            }
-            
-            .music-player {
-                bottom: 20px;
-                right: 20px;
-            }
-            
-            .music-btn {
-                width: 50px;
-                height: 50px;
-                font-size: 1.3em;
             }
         }
 
@@ -491,12 +450,6 @@
     </style>
 </head>
 <body>
-    <!-- Audio para la canción -->
-    <audio id="birthdaySong" loop>
-        <source src="cancion.mp3" type="audio/mpeg">
-        Tu navegador no soporta el elemento de audio.
-    </audio>
-
     <!-- Fondo con estrellas AZULES y corazones -->
     <div class="stars" id="stars"></div>
     <div class="hearts-bg"></div>
@@ -581,13 +534,6 @@
             <p>Hecho con <i class="fas fa-heart" style="color: #0066CC;"></i> para Drago - 14 de febrero de 2026</p>
             <p>© 2026 - Un regalo digital especial para San Valentín</p>
         </div>
-    </div>
-
-    <!-- Control de música -->
-    <div class="music-player">
-        <button class="music-btn" id="playButton">
-            <i class="fas fa-music"></i>
-        </button>
     </div>
 
     <script>
@@ -685,71 +631,10 @@
                     }
                 }, 6000);
             }
-            
-            const confettiSound = new Audio('data:audio/wav;base64,UklGRigAAABXQVZFZm10IBIAAAABAAEAQB8AAEAfAAABAAgAZGF0YQ');
-            try {
-                confettiSound.volume = 0.3;
-                confettiSound.play();
-            } catch (e) {}
         }
 
-        // Control de música
+        // Inicializar todo
         document.addEventListener('DOMContentLoaded', function() {
-            const audio = document.getElementById('birthdaySong');
-            const playButton = document.getElementById('playButton');
-            let isPlaying = false;
-            
-            function startMusic() {
-                const playPromise = audio.play();
-                
-                if (playPromise !== undefined) {
-                    playPromise.then(() => {
-                        isPlaying = true;
-                        playButton.innerHTML = '<i class="fas fa-music"></i>';
-                    }).catch(error => {
-                        isPlaying = false;
-                        playButton.innerHTML = '<i class="fas fa-play"></i>';
-                        
-                        document.addEventListener('click', function tryPlayOnInteraction() {
-                            audio.play().then(() => {
-                                isPlaying = true;
-                                playButton.innerHTML = '<i class="fas fa-music"></i>';
-                            }).catch(() => {
-                                isPlaying = false;
-                            });
-                            document.removeEventListener('click', tryPlayOnInteraction);
-                        }, { once: true });
-                    });
-                }
-            }
-            
-            audio.volume = 0.7;
-            audio.preload = 'auto';
-            
-            setTimeout(startMusic, 500);
-            
-            window.addEventListener('scroll', function tryPlayOnScroll() {
-                if (!isPlaying) {
-                    audio.play().then(() => {
-                        isPlaying = true;
-                        playButton.innerHTML = '<i class="fas fa-music"></i>';
-                    }).catch(() => {});
-                }
-                window.removeEventListener('scroll', tryPlayOnScroll);
-            }, { once: true });
-            
-            playButton.addEventListener('click', function() {
-                if (isPlaying) {
-                    audio.pause();
-                    playButton.innerHTML = '<i class="fas fa-play"></i>';
-                    isPlaying = false;
-                } else {
-                    audio.play();
-                    playButton.innerHTML = '<i class="fas fa-music"></i>';
-                    isPlaying = true;
-                }
-            });
-            
             document.getElementById('confettiBtn').addEventListener('click', function() {
                 createConfetti();
                 this.style.transform = 'scale(0.95)';
@@ -784,15 +669,6 @@
                 birthdayCard.style.transform = '';
                 birthdayCard.style.boxShadow = '0 15px 35px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1)';
             });
-            
-            setInterval(() => {
-                if (audio.paused && isPlaying) {
-                    audio.play().catch(() => {
-                        isPlaying = false;
-                        playButton.innerHTML = '<i class="fas fa-play"></i>';
-                    });
-                }
-            }, 5000);
         });
 
         const style = document.createElement('style');
@@ -804,17 +680,6 @@
             .pulse { animation: pulse 0.5s infinite; }
         `;
         document.head.appendChild(style);
-        
-        window.addEventListener('focus', function() {
-            const audio = document.getElementById('birthdaySong');
-            const playButton = document.getElementById('playButton');
-            
-            if (!audio.paused) return;
-            
-            audio.play().then(() => {
-                playButton.innerHTML = '<i class="fas fa-music"></i>';
-            }).catch(() => {});
-        });
     </script>
 </body>
 </html>
